@@ -1,0 +1,12 @@
+root = true
+[*]
+# use 2 spaces to indent
+indent_style = space
+indent_size = 2
+# default charset
+charset = utf-8
+# use linux eol
+end_of_line = lf
+
+[CHANGELOG.md]
+indent_size = false
