@@ -10,8 +10,11 @@
   <img alt="MIT" src="https://img.shields.io/badge/License-MIT-blue.svg"/>
   <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-blue.svg"/>
   <img alt="Trafi TK" src="https://img.shields.io/badge/trafi-tk-blue"/>
-
 </p>       
+  
+  <p align="center">
+  <a href="https://nodei.co/npm/trafi-tk/"><img src="https://nodei.co/npm/trafi-tk.png"></a>
+</p>
          
 <br/>
 
