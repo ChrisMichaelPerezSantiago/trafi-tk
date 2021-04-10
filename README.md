@@ -189,6 +189,30 @@ _Project under development_
 }
 ```
 
+## METRO BUS
+
+## istanbulMetroBus()
+
+```json
+{
+  "transportNamePlural": "Metrobüsler",
+  "transportName": "Metrobüs",
+  "teleferikler": [
+    {
+      "scheduleId": "ist_34",
+      "transportId": "ist_metrobus",
+      "validity": null,
+      "name": "34",
+      "longName": "Avcılar - Zincirlikuyu",
+      "icon": "transport/ist_metrobus_metrobus_B26400_34",
+      "color": "B26400",
+      "stops": [Object]
+    }
+    // .....
+  ]
+}
+```
+
 ## **:handshake: Contributing**
 
 - Fork it!

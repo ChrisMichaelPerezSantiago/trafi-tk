@@ -151,6 +151,36 @@ const istanbulTeleferikler = () => {
   });
 };
 
+const istanbulMetroBus = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const json = await request(
+        'https://web.trafi.com/api/schedules/istanbul/all?transportType=metrobus',
+      );
+      const data = pick(json, ['schedulesByTransportId']).schedulesByTransportId;
+      const schedulesMetroBus = map(data, (props) => pick(props, ['schedules']).schedules)[0];
+      const stopsByIdMetroBusData = await stopsByIdMetroBus(schedulesMetroBus);
+
+      const { transportNamePlural, transportName } = pick(data[0], [
+        'transportNamePlural',
+        'transportName',
+      ]);
+      const obj = Object.assign(
+        {},
+        {
+          transportNamePlural,
+          transportName,
+          metrobus: stopsByIdMetroBusData,
+        },
+      );
+      resolve(obj);
+    } catch (error) {
+      const e = new Error(error);
+      reject(e.message);
+    }
+  });
+};
+
 const allStops = async (scheduleId) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -170,6 +200,20 @@ const allStopsTramvay = async (scheduleId) => {
     try {
       const json = await request(
         `https://web.trafi.com/api/schedules/istanbul/schedule?scheduleId=${scheduleId}&transportType=tram`,
+      );
+      resolve(json);
+    } catch (error) {
+      const e = new Error(error);
+      reject(e.message);
+    }
+  });
+};
+
+const allStopsMetroBus = async (scheduleId) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const json = await request(
+        `https://web.trafi.com/api/schedules/istanbul/schedule?scheduleId=${scheduleId}&transportType=metrobus`,
       );
       resolve(json);
     } catch (error) {
@@ -261,10 +305,52 @@ const stopsByIdTram = (obj) => {
   });
 };
 
+const stopsByIdMetroBus = (obj) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const data = map(
+        obj,
+        async (props) =>
+          new Promise(async (resolve, reject) => {
+            try {
+              const scheduleId = props.scheduleId;
+              const transportId = props.transportId;
+              const validity = props.validity;
+              const name = props.name;
+              const longName = props.longName;
+              const icon = props.icon;
+              const color = props.color;
+              const stops = await allStopsMetroBus(scheduleId);
+              resolve({
+                scheduleId,
+                transportId,
+                validity,
+                name,
+                longName,
+                icon,
+                color,
+                stops,
+              });
+            } catch (error) {
+              const e = new Error(error);
+              reject(e.message);
+            }
+          }),
+      );
+      const resolveStopsByIdData = await Promise.all(data);
+      resolve(resolveStopsByIdData);
+    } catch (error) {
+      const e = new Error(error);
+      reject(e);
+    }
+  });
+};
+
 module.exports = {
   istanbulMetro,
   istanbulMarmaray,
   istanbulTramvay,
   istanbulFunikuler,
   istanbulTeleferikler,
+  istanbulMetroBus,
 };
