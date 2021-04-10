@@ -67,6 +67,128 @@ _Project under development_
 }
 ```
 
+## TRAMVAY
+
+## istanbulTramvay()
+
+```json
+{
+  "scheduleId": "istm_T1_20201120",
+  "transportId": "istm_tram",
+  "validity": null,
+  "name": "T1",
+  "longName": "Bağcılar - Kabataş",
+  "icon": "transport/istm_tram_tram_004F7D_T1",
+  "color": "004F7D",
+  "stops": {
+    "id": "istm_T1_20201120",
+    "name": "T1",
+    "longName": "Bağcılar - Kabataş",
+    "color": "004F7D",
+    "icon": "transport/istm_tram_tram_004F7D_T1",
+    "transportName": "Tramvay",
+    "tracks": [[Object], [Object], [Object], [Object]],
+    "stops": [
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object],
+      [Object]
+    ]
+  }
+  // .....
+}
+```
+
+## FÜNIKÜLER
+
+## istanbulFunikuler()
+
+```json
+{
+  "transportNamePlural": "Füniküler",
+  "transportName": "Füniküler",
+  "Tramvay": [
+    {
+      "scheduleId": "istm_F1_20201120",
+      "transportId": "istm_funicular",
+      "validity": null,
+      "name": "F1",
+      "longName": "Taksim - Kabataş",
+      "icon": "transport/istm_funicular_tram_7C7358_F1",
+      "color": "7C7358",
+      "stops": [Object]
+    }
+    // .....
+  ]
+}
+```
+
+## TELEFERIKLER
+
+## istanbulTeleferikler()
+
+```json
+{
+  "transportNamePlural": "Teleferikler",
+  "transportName": "Teleferik",
+  "teleferikler": [
+    {
+      "scheduleId": "istm_TF1_20201120",
+      "transportId": "istm_cablecar",
+      "validity": null,
+      "name": "TF1",
+      "longName": "Maçka - Taşkışla",
+      "icon": "transport/istm_cablecar_tram_68BCB0_TF1",
+      "color": "68BCB0",
+      "stops": [Object]
+    }
+    // .....
+  ]
+}
+```
+
 ## **:handshake: Contributing**
 
 - Fork it!
